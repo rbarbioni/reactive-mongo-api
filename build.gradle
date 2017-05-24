@@ -1,6 +1,20 @@
 apply plugin: 'java'
 
-def spring_boot_version='2.0.0.M1'
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/"}
+        maven { url "http://repo.spring.io/release" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "http://repo.spring.io/snapshot" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT")
+        classpath ('io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE')
+    }
+}
 
 repositories {
     mavenLocal()
@@ -12,12 +26,12 @@ repositories {
 }
 
 dependencies {
-    runtime("org.springframework.boot:spring-boot-devtools:${spring_boot_version}")
-    compile("org.springframework.boot:spring-boot-starter-webflux:${spring_boot_version}")
+    runtime("org.springframework.boot:spring-boot-devtools:2.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework.boot:spring-boot-starter-webflux:2.0.0.BUILD-SNAPSHOT")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.0.0.BUILD-SNAPSHOT")
     compile group: 'io.projectreactor.ipc', name: 'reactor-netty', version: '0.6.3.RELEASE'
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+    gradleVersion = '3.4'
 }
