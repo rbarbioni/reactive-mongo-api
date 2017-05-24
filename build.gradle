@@ -1,5 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
+def springBootVersion = '2.0.0.BUILD-SNAPSHOT'
 
 buildscript {
 
@@ -26,9 +28,9 @@ repositories {
 }
 
 dependencies {
-    runtime("org.springframework.boot:spring-boot-devtools:2.0.0.BUILD-SNAPSHOT")
-    compile("org.springframework.boot:spring-boot-starter-webflux:2.0.0.BUILD-SNAPSHOT")
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.0.0.BUILD-SNAPSHOT")
+    runtime("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive:${springBootVersion}")
     compile group: 'io.projectreactor.ipc', name: 'reactor-netty', version: '0.6.3.RELEASE'
 }
 
