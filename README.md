@@ -3,9 +3,9 @@
 
 - Spring-Boot 2.0
 - Spring 5.0
-- Spring-Data-Reactive-Mongo
+- Spring-Data-Mongodb-Reactive
 - Mongo-Repositories
-- Netty-Server
+- Reactor-Netty-Server
 
 # Instructions
 
