@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+def spring_boot_version='2.0.0.M1'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "http://repo.spring.io/release" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "http://repo.spring.io/snapshot" }
+}
+
+dependencies {
+    runtime("org.springframework.boot:spring-boot-devtools:${spring_boot_version}")
+    compile("org.springframework.boot:spring-boot-starter-webflux:${spring_boot_version}")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.0.0.BUILD-SNAPSHOT")
+    compile group: 'io.projectreactor.ipc', name: 'reactor-netty', version: '0.6.3.RELEASE'
+}
